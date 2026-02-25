@@ -56,7 +56,7 @@ router.get("/signout", (req, res) => {
             return res.status(500).json({ success: false });
         }
 
-        res.clearCookie("connect.sid"); // default session cookie name
+        res.clearCookie("connect.sid");
         return res.redirect('/signin');
     });
 });

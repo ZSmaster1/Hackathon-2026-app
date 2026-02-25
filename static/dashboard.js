@@ -46,7 +46,6 @@ fetch('/user', { method: 'GET' }).then((res) => {
             ctx.lineCap = 'round';
             ctx.stroke();
 
-            // Simple avatar silhouette
             ctx.fillStyle = '#d4ccf0';
             ctx.beginPath();
             ctx.arc(center, center - 8, 14, 0, Math.PI * 2);
@@ -56,7 +55,7 @@ fetch('/user', { method: 'GET' }).then((res) => {
             ctx.fill();
         }
 
-        // Bar chart
+        //bar chart
         let barCanvas = document.getElementById('barChart');
         if (barCanvas) {
             let bctx = barCanvas.getContext('2d');

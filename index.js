@@ -10,7 +10,7 @@ server.use(express.json());
 server.use(express.static(path.join(process.env.ROOTPATH, 'static')));
 server.use(
     session({
-        secret: "4564f6qw46f5q45wf4q65361f654154f6",
+        secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
         cookie: {

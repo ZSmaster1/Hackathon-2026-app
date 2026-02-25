@@ -44,20 +44,20 @@
 
 <body class="min-h-screen flex bg-background font-sans antialiased">
 
-    
+
     <aside class="flex w-60 shrink-0 flex-col border-r border-border bg-card h-screen sticky top-0 overflow-y-auto">
-        
+
         <div class="flex items-center gap-2.5 px-6 pt-6 pb-4">
             <a href="/dashboard"><img src="/logo-large.png" alt=""></a>
         </div>
 
-        
+
         <div class="px-6 pt-4">
             <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Overview</p>
             <nav class="flex flex-col gap-1">
-                
+
                 <a href="/school"
-                    class="flex items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground">
+                    class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -66,7 +66,7 @@
 
                     School
                 </a>
-                
+
                 <a href="/health"
                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -77,9 +77,9 @@
 
                     Health
                 </a>
-                
-				<a href="/socials"
-                    class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+
+                <a href="/socials"
+                    class="flex items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -88,8 +88,8 @@
 
                     Socials
                 </a>
-                
-				<a href="/time-management"
+
+                <a href="/time-management"
                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -100,7 +100,7 @@
                     Time Management
                 </a>
 
-				<a href="/guidance"
+                <a href="/guidance"
                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -116,7 +116,7 @@
         </div>
 
 
-        
+
         <div class="mt-auto px-6 pb-6 pt-6">
             <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Account</p>
             <div class="flex flex-col gap-1">
@@ -133,31 +133,68 @@
         </div>
     </aside>
 
-    
+
     <main class="flex-1 overflow-y-auto px-6 py-6">
         <div class="flex gap-6">
-            
+
             <div class="flex-1" style="display:flex;flex-direction:column;gap:1.5rem;">
 
-                
+
                 <section>
                     <div class="mb-4 flex items-center justify-between">
-                        <h3 class="text-lg font-bold text-foreground">Courses</h3>
+                        <h3 class="text-lg font-bold text-foreground">You have 4 notifications!</h3>
                     </div>
                     <div class="overflow-hidden rounded-xl border border-border bg-card">
-                        
+
                         <div class="grid gap-4 border-b border-border px-5 py-3"
                             style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
-                            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Name</p>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Average</p>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Action</p>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Message</p>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">App</p>
 
                         </div>
                         <div id="coursetable">
-                            
-                           
 
-                      
+                            <div class="grid items-center gap-4 px-5 py-3"
+                                style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+
+                                <p class="text-sm text-foreground">Dhruv requested to be your friend</p>
+                                <p class="text-sm text-foreground">Instagram</p>
+
+
+
+                            </div>
+
+                              <div class="grid items-center gap-4 px-5 py-3"
+                                style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+
+                                <p class="text-sm text-foreground">Daksh sent you 14 videos</p>
+                                <p class="text-sm text-foreground">TikTok</p>
+
+
+
+                            </div>
+
+                              <div class="grid items-center gap-4 px-5 py-3"
+                                style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+
+                                <p class="text-sm text-foreground">Kevin sent you a snap</p>
+                                <p class="text-sm text-foreground">Snapchat</p>
+
+
+
+                            </div>
+
+                              <div class="grid items-center gap-4 px-5 py-3"
+                                style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+
+                                <p class="text-sm text-foreground">The Organic Chemistry Tutor uploaded a new video</p>
+                                <p class="text-sm text-foreground">YouTube</p>
+
+
+
+                            </div>
+
+
                         </div>
 
 
@@ -166,49 +203,93 @@
 
 
 
-                
+
                 <section>
                     <div class="mb-4 flex items-center justify-between">
-                        <h3 class="text-lg font-bold text-foreground">Study resources</h3>
-                        
+                        <h3 class="text-lg font-bold text-foreground">Social platforms</h3>
+                       
                     </div>
                     <div class="grid grid-cols-3 gap-4">
 
-                        
-                       
-                        
+
+
+
                         <div class="group cursor-pointer">
                             <div class="relative mb-3 overflow-hidden rounded-xl">
-                                <img src="/physics-tb.jpg" alt="Front-End Development Course"
+                                <img src="/youtube.jpg" alt="Front-End Development Course"
                                     class="h-40 w-full object-cover transition-transform group-hover:scale-105" />
 
                             </div>
-                            <div class="mb-2">
-                                <span
-                                    class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wide"
-                                    style="background:rgba(124,92,252,0.1);color:#7c5cfc;">Resource</span>
-                            </div>
+                           
                             <h4 class="mb-3 text-sm font-semibold leading-snug text-foreground"
                                 style="display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;">
-                               Nelson 11 Functions Textbook</h4>
+                                YouTube</h4>
 
                         </div>
 
-                        
+
                         <div class="group cursor-pointer">
                             <div class="relative mb-3 overflow-hidden rounded-xl">
-                                <img src="/functions-tb.jpg" alt="Front-End Development Course"
+                                <img src="/snapchat.jpg" alt="Front-End Development Course"
                                     class="h-40 w-full object-cover transition-transform group-hover:scale-105" />
 
                             </div>
-                            <div class="mb-2">
-                                <span
-                                    class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wide"
-                                    style="background:rgba(124,92,252,0.1);color:#7c5cfc;">Resource</span>
-                            </div>
+                           
                             <h4 class="mb-3 text-sm font-semibold leading-snug text-foreground"
                                 style="display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;">
-                        Functions 12 Textbook</h4>
+                                Snapchat</h4>
+
+                        </div>
+
+                         <div class="group cursor-pointer">
+                            <div class="relative mb-3 overflow-hidden rounded-xl">
+                                <img src="/tiktok.jpg" alt="Front-End Development Course"
+                                    class="h-40 w-full object-cover transition-transform group-hover:scale-105" />
+
+                            </div>
+                           
+                            <h4 class="mb-3 text-sm font-semibold leading-snug text-foreground"
+                                style="display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;">
+                                TikTok</h4>
+
+                        </div>
+
+                         <div class="group cursor-pointer">
+                            <div class="relative mb-3 overflow-hidden rounded-xl">
+                                <img src="/instagram.jpg" alt="Front-End Development Course"
+                                    class="h-40 w-full object-cover transition-transform group-hover:scale-105" />
+
+                            </div>
+                           
+                            <h4 class="mb-3 text-sm font-semibold leading-snug text-foreground"
+                                style="display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;">
+                                Instagram</h4>
+
+                        </div>
+
+                         <div class="group cursor-pointer">
+                            <div class="relative mb-3 overflow-hidden rounded-xl">
+                                <img src="/imessage.png" alt="Front-End Development Course"
+                                    class="h-40 w-full object-cover transition-transform group-hover:scale-105" />
+
+                            </div>
+                           
+                            <h4 class="mb-3 text-sm font-semibold leading-snug text-foreground"
+                                style="display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;">
+                                iMessage</h4>
+
+                        </div>
+                        
+                         <div class="group cursor-pointer">
+                            <div class="relative mb-3 overflow-hidden rounded-xl">
+                                <img src="/spotify.jpg" alt="Front-End Development Course"
+                                    class="h-40 w-full object-cover transition-transform group-hover:scale-105" />
+
+                            </div>
+                           
+                            <h4 class="mb-3 text-sm font-semibold leading-snug text-foreground"
+                                style="display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;">
+                                Spotify</h4>
 
                         </div>
 
@@ -218,38 +299,9 @@
 
             </div>
 
-            
-            <aside class="w-72 shrink-0">
-                <div class="rounded-2xl border border-border bg-card p-5">
-                    <div class="mb-4 flex items-center justify-between">
-                        <h3 class="text-base font-bold text-foreground">Statistic</h3>
-                        <button class="text-muted-foreground hover:text-foreground">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 5v.01M12 12v.01M12 19v.01" />
-                            </svg>
-                        </button>
-                    </div>
 
-                    
-                    <div class="relative mx-auto mb-4 flex items-center justify-center">
-                        <canvas id="progressCanvas" width="120" height="120" style="width:120px;height:120px;"></canvas>
-                        <span id="mark"
-                            class="absolute -top-1 right-4 rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold text-primary-foreground">32%</span>
-                    </div>
-
-                    
-                    <div class="mb-5 text-center">
-                        <p class="text-sm font-bold text-foreground" id="greeting">Good Morning Jason</p>
-                        <p class="text-xs text-muted-foreground">Continue your learning to achieve your target!</p>
-                    </div>
-
-
-                </div>
-            </aside>
         </div>
     </main>
-    <script src="/school.js"></script>
 
 </body>
 

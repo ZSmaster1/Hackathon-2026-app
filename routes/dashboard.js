@@ -26,5 +26,9 @@ router.get("/guidance", (req, res) => {
     res.sendFile(path.join(process.env.ROOTPATH, 'public', 'guidance.html'))
 });
 
+router.get("/socials", (req, res) => {
+    res.sendFile(path.join(process.env.ROOTPATH, 'public', 'socials.html'))
+});
+
 
 module.exports = router;

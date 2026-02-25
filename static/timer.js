@@ -44,7 +44,7 @@ function addTimer(name, totalSeconds) {
         name: name,
         totalSeconds: totalSeconds,
         remainingSeconds: totalSeconds,
-        status: 'pending' // pending | active | done | skipped
+        status: 'pending'
     });
     render();
 }
@@ -63,7 +63,6 @@ function render() {
     controlsEl.classList.remove('hidden');
     controlsEl.classList.add('flex');
 
-    // Show/hide buttons based on state
     if (isRunning && !isPaused) {
         startBtn.classList.add('hidden');
         pauseBtn.classList.remove('hidden');
@@ -89,7 +88,6 @@ function render() {
         let isActive = timer.status === 'active';
         let isPending = timer.status === 'pending';
 
-        // Card colors
         let borderClass = isActive ? 'border-primary' : isDone ? 'border-green-200' : 'border-border';
         let bgClass = isDone ? 'bg-green-50/50' : 'bg-card';
         let pulseClass = isActive ? 'timer-active' : '';
@@ -179,7 +177,6 @@ function escapeHtml(str) {
     return div.innerHTML;
 }
 
-// === Queue controls ===
 function startQueue() {
     if (isPaused) {
         isPaused = false;
@@ -189,7 +186,6 @@ function startQueue() {
         return;
     }
 
-    // Find first pending timer
     let idx = timers.findIndex(function (t) { return t.status === 'pending'; });
     if (idx === -1) return;
 
@@ -285,7 +281,6 @@ function showSummary() {
     summaryEl.classList.remove('hidden');
 }
 
-// Initial render
 render();
 
 fetch('/user', { method: 'GET' }).then((res) => {

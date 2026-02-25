@@ -57,7 +57,6 @@ function calculate() {
     let height = parseFloat(document.getElementById('inputHeight').value) || 182;
     let activityIdx = parseInt(document.getElementById('activitySlider').value);
 
-    // Mifflin-St Jeor
     let bmr;
     if (gender === 'male') {
         bmr = 10 * weight + 6.25 * height - 5 * age + 5;
@@ -67,7 +66,6 @@ function calculate() {
 
     let tdee = bmr * activityMultipliers[activityIdx];
 
-    // Adjust for goal
     let goalMultipliers = {
         'lose': -500,
         'lose10': -0.1 * tdee,
@@ -80,7 +78,6 @@ function calculate() {
     result = { kcal: kcal, weight: weight };
     recalcMacros();
 
-    // Show result panel
     document.getElementById('resultEmpty').classList.add('hidden');
     document.getElementById('resultFilled').classList.remove('hidden');
 }
@@ -123,7 +120,7 @@ function recalcMacros() {
 }
 
 function updateDonut(carbsPct, proteinPct, fatPct) {
-    let circumference = 2 * Math.PI * 48; // r=48
+    let circumference = 2 * Math.PI * 48;
 
     let carbLen = (carbsPct / 100) * circumference;
     let proteinLen = (proteinPct / 100) * circumference;
@@ -131,17 +128,14 @@ function updateDonut(carbsPct, proteinPct, fatPct) {
 
     let gap = 4;
 
-    // Carbs: starts at 0
     let carbEl = document.getElementById('donutCarb');
     carbEl.setAttribute('stroke-dasharray', (carbLen - gap) + ' ' + (circumference - carbLen + gap));
     carbEl.setAttribute('stroke-dashoffset', '0');
 
-    // Protein: starts after carbs
     let proteinEl = document.getElementById('donutProtein');
     proteinEl.setAttribute('stroke-dasharray', (proteinLen - gap) + ' ' + (circumference - proteinLen + gap));
     proteinEl.setAttribute('stroke-dashoffset', '-' + carbLen);
 
-    // Fat: starts after carbs + protein
     let fatEl = document.getElementById('donutFat');
     fatEl.setAttribute('stroke-dasharray', (fatLen - gap) + ' ' + (circumference - fatLen + gap));
     fatEl.setAttribute('stroke-dashoffset', '-' + (carbLen + proteinLen));
@@ -156,7 +150,6 @@ function updateMealBreakdown() {
     document.getElementById('mealFat').textContent = Math.round(result.fat / m) + 'g';
 }
 
-// === Clear ===
 function clearForm() {
     document.getElementById('inputAge').value = '24';
     document.getElementById('inputWeight').value = '72';
@@ -170,5 +163,4 @@ function clearForm() {
     document.getElementById('resultFilled').classList.add('hidden');
 }
 
-// Init
 updateActivity();
