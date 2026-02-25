@@ -44,18 +44,18 @@
 
 <body class="min-h-screen flex bg-background font-sans antialiased">
 
-    
+    <!-- ===== LEFT SIDEBAR ===== -->
     <aside class="flex w-60 shrink-0 flex-col border-r border-border bg-card h-screen sticky top-0 overflow-y-auto">
-        
+        <!-- Logo -->
         <div class="flex items-center gap-2.5 px-6 pt-6 pb-4">
             <a href="/dashboard"><img src="/logo-large.png" alt=""></a>
         </div>
 
-        
+        <!-- Overview Nav -->
         <div class="px-6 pt-4">
             <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Overview</p>
             <nav class="flex flex-col gap-1">
-                
+                <!-- Dashboard - active -->
                 <a href="/school"
                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -66,7 +66,7 @@
 
                     School
                 </a>
-                
+                <!-- Inbox -->
                 <a href="/health"
                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -77,7 +77,7 @@
 
                     Health
                 </a>
-                
+                <!-- Lesson -->
                 <a href="#"
                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -88,9 +88,8 @@
 
                     Socials
                 </a>
-                
                 <a href="/time-management"
-                    class="flex items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground">
+                    class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -101,7 +100,7 @@
                 </a>
 
 				<a href="/guidance"
-                    class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                    class="flex items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -116,7 +115,7 @@
         </div>
 
 
-        
+        <!-- Settings -->
         <div class="mt-auto px-6 pb-6 pt-6">
             <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Account</p>
             <div class="flex flex-col gap-1">
@@ -132,115 +131,101 @@
             </div>
         </div>
     </aside>
+    <main class="flex-1 flex flex-col h-screen overflow-hidden">
 
-    
-    <main class="flex-1 overflow-y-auto px-8 py-8">
-        <div class="mx-auto max-w-3xl">
-
-            
-            <div class="mb-8">
-                <h1 class="text-2xl font-bold text-foreground">Study Timer</h1>
-                <p class="mt-1 text-sm text-muted-foreground">Create sequential timers. When one ends, the next starts
-                    automatically.</p>
-            </div>
-
-            
-            <div class="mb-6 flex items-end gap-3 rounded-2xl border border-border bg-card p-5">
-                <div class="flex-1">
-                    <label for="timerName"
-                        class="mb-1.5 block text-xs font-semibold text-muted-foreground uppercase tracking-wider">Timer
-                        Name</label>
-                    <input id="timerName" type="text" placeholder="e.g. Study, Break, Review..."
-                        class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
-                </div>
-                <div class="w-28">
-                    <label for="timerMinutes"
-                        class="mb-1.5 block text-xs font-semibold text-muted-foreground uppercase tracking-wider">Minutes</label>
-                    <input id="timerMinutes" type="number" min="1" max="120" value="25"
-                        class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
-                </div>
-                <div class="w-28">
-                    <label for="timerSeconds"
-                        class="mb-1.5 block text-xs font-semibold text-muted-foreground uppercase tracking-wider">Seconds</label>
-                    <input id="timerSeconds" type="number" min="0" max="59" value="0"
-                        class="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
-                </div>
-                <button id="addTimerBtn"
-                    class="flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity shrink-0">
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                    </svg>
-                    Add
-                </button>
-            </div>
-
-            
-            <div class="mb-8 flex items-center gap-2" id="presets">
-                <span class="text-xs font-semibold text-muted-foreground mr-1">Create schedule for:</span>
+        <!-- Chat Header -->
+        <header class="flex items-center gap-4 border-b border-border bg-card px-8 py-4 shrink-0">
+            <div
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary">
+                AT</div>
+            <div class="flex-1">
+                <h1 class="text-sm font-bold text-foreground">Ms. Tsui</h1>
                 
             </div>
-
             
-            <div id="timerQueue" class="flex flex-col gap-4 mb-8">
-                
-            </div>
+        </header>
 
-            
-            <div id="emptyState"
-                class="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card py-16">
-                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-secondary mb-4">
-                    <svg class="h-8 w-8 text-secondary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+        <!-- Messages Area -->
+        <div id="messagesContainer" class="flex-1 overflow-y-auto px-8 py-6">
+            <div id="messagesList" class="flex flex-col gap-4 max-w-3xl mx-auto">
+
+                <!-- Date divider -->
+                <div class="flex items-center gap-4 my-2">
+                    <div class="flex-1 h-px bg-border"></div>
+                    <span class="text-xs font-medium text-muted-foreground">Today</span>
+                    <div class="flex-1 h-px bg-border"></div>
                 </div>
-                <p class="text-sm font-semibold text-foreground mb-1">No timers yet</p>
-                <p class="text-xs text-muted-foreground">Add a timer above to get started with your study session.</p>
-            </div>
 
-            
-            <div id="globalControls" class="hidden mt-6 flex items-center justify-center gap-3">
-                <button id="startAllBtn" onclick="startQueue()"
-                    class="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-sm font-bold text-primary-foreground hover:opacity-90 transition-opacity">
-                    <svg id="startIcon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        stroke-width="2">
-                        <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none" />
-                    </svg>
-                    <span id="startLabel">Start All</span>
-                </button>
-                <button id="pauseBtn" onclick="pauseQueue()"
-                    class="hidden flex items-center gap-2 rounded-xl border-2 border-primary px-6 py-3 text-sm font-bold text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 9v6m4-6v6" />
-                    </svg>
-                    Pause
-                </button>
-                <button id="resetAllBtn" onclick="resetAll()"
-                    class="flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3 text-sm font-semibold text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                    Reset All
-                </button>
-            </div>
+       
 
-            
-            <div id="completedSummary" class="hidden mt-8 rounded-2xl border border-border bg-card p-6 text-center">
-                <div class="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 mx-auto mb-3">
-                    <svg class="h-7 w-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
+                <!-- Outgoing message -->
+                <div class="flex gap-3 max-w-[75%] self-end flex-row-reverse slide-right">
+                    <div
+                        class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground mt-1">
+                        ZS</div>
+                    <div>
+                        <div class="rounded-2xl rounded-tr-md bg-primary px-4 py-3">
+                            <p class="text-sm text-primary-foreground leading-relaxed">When should i submit my courses by?</p>
+                        </div>
+                        <p class="mt-1.5 text-[11px] text-muted-foreground text-right mr-1">9:35 AM</p>
+                    </div>
                 </div>
-                <p class="text-lg font-bold text-foreground mb-1">All timers complete!</p>
-                <p class="text-sm text-muted-foreground">Total time: <span id="totalTime"
-                        class="font-semibold text-primary">0m 0s</span></p>
+
+                <!-- Incoming -->
+                <div class="flex gap-3 max-w-[75%] slide-left">
+                    <div
+                        class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/20 text-[11px] font-bold text-primary mt-1">
+                        AT</div>
+                    <div>
+                        <div class="rounded-2xl rounded-tl-md bg-card border border-border px-4 py-3">
+                            <p class="text-sm text-foreground leading-relaxed">Friday this week at 4pm sharp, earlier is even better.</p>
+                        </div>
+                        <p class="mt-1.5 text-[11px] text-muted-foreground ml-1">9:37 AM</p>
+                    </div>
+                </div>
+
+                <!-- Outgoing -->
+                <div class="flex gap-3 max-w-[75%] self-end flex-row-reverse slide-right">
+                    <div
+                        class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground mt-1">
+                        ZS</div>
+                    <div>
+                        <div class="rounded-2xl rounded-tr-md bg-primary px-4 py-3">
+                            <p class="text-sm text-primary-foreground leading-relaxed">Sure i'll submit them later today after my tutor class.</p>
+                        </div>
+                        <p class="mt-1.5 text-[11px] text-muted-foreground text-right mr-1">9:40 AM</p>
+                    </div>
+                </div>
+
+               
+
             </div>
         </div>
+
+       
+
+        <!-- Message Input -->
+        <div class="border-t border-border bg-card px-8 py-4 shrink-0">
+            <form id="chatForm" class="flex items-end gap-3 max-w-3xl mx-auto">
+                
+                <div class="flex-1 relative">
+                    <textarea id="messageInput" placeholder="Type a message..." rows="1"
+                        class="w-full resize-none rounded-xl border border-border bg-background px-4 py-2.5 pr-12 text-sm text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all leading-relaxed"
+                        style="max-height: 120px;"></textarea>
+                    
+                </div>
+                <button type="submit" id="sendBtn"
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                    disabled title="Send message">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+
     </main>
-    <script src="/timer.js"></script>
+
 
 </body>
 

@@ -44,18 +44,18 @@
 
 <body class="min-h-screen flex bg-background font-sans antialiased">
 
-	<!-- ===== LEFT SIDEBAR ===== -->
+	
 	<aside class="flex w-60 shrink-0 flex-col border-r border-border bg-card h-screen sticky top-0 overflow-y-auto">
-		<!-- Logo -->
+		
 		<div class="flex items-center gap-2.5 px-6 pt-6 pb-4">
-			<img src="/logo-large.png" alt="">
+            <a href="/dashboard"><img src="/logo-large.png" alt=""></a>
 		</div>
 
-		<!-- Overview Nav -->
+		
 		<div class="px-6 pt-4">
 			<p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Overview</p>
 			<nav class="flex flex-col gap-1">
-				<!-- Dashboard - active -->
+				
 				<a href="/school"
 					class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -66,8 +66,8 @@
 
 					School
 				</a>
-				<!-- Inbox -->
-				<a href="#"
+				
+                <a href="/health"
 					class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
 						stroke="currentColor" class="size-6">
@@ -77,7 +77,7 @@
 
 					Health
 				</a>
-				<!-- Lesson -->
+				
 				<a href="#"
 					class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -88,7 +88,7 @@
 
 					Socials
 				</a>
-				<!-- Task -->
+				
 				<a href="/time-management"
 					class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -100,7 +100,7 @@
 					Time Management
 				</a>
 
-				<a href="#"
+				<a href="/guidance"
 					class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
@@ -114,7 +114,7 @@
 		</div>
 
 
-		<!-- Settings -->
+		
 		<div class="mt-auto px-6 pb-6 pt-6">
 			<p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Account</p>
 			<div class="flex flex-col gap-1">
@@ -131,17 +131,17 @@
 		</div>
 	</aside>
 
-	<!-- ===== MAIN CONTENT ===== -->
+	
 	<main class="flex-1 overflow-y-auto px-6 py-6">
 		<div class="flex gap-6">
-			<!-- Center column -->
+			
 			<div class="flex-1" style="display:flex;flex-direction:column;gap:1.5rem;">
 
 				
 
 		
 
-				<!-- ===== CONTINUE WATCHING ===== -->
+				
 				<section>
 					<div class="mb-4 flex items-center justify-between">
 						<h3 class="text-lg font-bold text-foreground">Notifications</h3>
@@ -164,7 +164,7 @@
 					</div>
 					<div class="grid grid-cols-3 gap-4">
 
-						<!-- Course Card 1 -->
+						
 						<div class="group cursor-pointer">
 							<div class="relative mb-3 overflow-hidden rounded-xl">
 								<img src="/physics-bg.jpg" alt="Front-End Development Course"
@@ -182,7 +182,7 @@
 							
 						</div>
 			
-						<!-- Course Card 2 -->
+						
 						<div class="group cursor-pointer">
 							<div class="relative mb-3 overflow-hidden rounded-xl">
 								<img src="/gym-bg.jpg" alt="Front-End Development Course"
@@ -200,7 +200,7 @@
 							
 						</div>
 
-						<!-- Course Card 2 -->
+						
 						<div class="group cursor-pointer">
 							<div class="relative mb-3 overflow-hidden rounded-xl">
 								<img src="/social-bg.jpg" alt="Front-End Development Course"
@@ -221,20 +221,20 @@
 					</div>
 				</section>
 
-				<!-- to do section -->
+				
 				<section>
 					<div class="mb-4 flex items-center justify-between">
 						<h3 class="text-lg font-bold text-foreground">To-Do</h3>
 						<button class="text-sm font-medium text-primary hover:underline">See all</button>
 					</div>
 					<div class="overflow-hidden rounded-xl border border-border bg-card">
-						<!-- Table Header -->
+						
 						<div class="grid gap-4 border-b border-border px-5 py-3"
 							style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
 							<p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Description</p>
 
 						</div>
-						<!-- Table Row -->
+						
 						<div class="grid items-center gap-4 px-5 py-3"
 							style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
 							
@@ -279,7 +279,7 @@
 				</section>
 			</div>
 
-			<!-- ===== RIGHT SIDEBAR - STATISTICS ===== -->
+			
 			<aside class="w-72 shrink-0">
 				<div class="rounded-2xl border border-border bg-card p-5">
 					<div class="mb-4 flex items-center justify-between">
@@ -292,20 +292,20 @@
 						</button>
 					</div>
 
-					<!-- Circular Progress -->
+					
 					<div class="relative mx-auto mb-4 flex items-center justify-center">
 						<canvas id="progressCanvas" width="120" height="120" style="width:120px;height:120px;"></canvas>
 						<span id="mark"
 							class="absolute -top-1 right-4 rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold text-primary-foreground">32%</span>
 					</div>
 
-					<!-- Greeting -->
+					
 					<div class="mb-5 text-center">
 						<p class="text-sm font-bold text-foreground" id="greeting">Good Morning Jason</p>
 						<p class="text-xs text-muted-foreground">Continue your learning to achieve your target!</p>
 					</div>
 
-					<!-- Bar Chart -->
+					
 					<div class="flex items-center justify-center">
 						<canvas id="barChart" width="240" height="160" style="width:240px;height:160px;"></canvas>
 					</div>

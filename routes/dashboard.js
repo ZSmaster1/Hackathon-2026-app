@@ -18,5 +18,13 @@ router.get("/time-management", (req, res) => {
     res.sendFile(path.join(process.env.ROOTPATH, 'public', 'timeManagement.html'))
 });
 
+router.get("/health", (req, res) => {
+    res.sendFile(path.join(process.env.ROOTPATH, 'public', 'health.html'))
+});
+
+router.get("/guidance", (req, res) => {
+    res.sendFile(path.join(process.env.ROOTPATH, 'public', 'guidance.html'))
+});
+
 
 module.exports = router;

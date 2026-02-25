@@ -29,7 +29,6 @@ document.getElementById('addTimerBtn').addEventListener('click', function () {
     nameInput.focus();
 });
 
-// Enter key support
 document.getElementById('timerName').addEventListener('keydown', function (e) { if (e.key === 'Enter') document.getElementById('addTimerBtn').click(); });
 document.getElementById('timerMinutes').addEventListener('keydown', function (e) { if (e.key === 'Enter') document.getElementById('addTimerBtn').click(); });
 document.getElementById('timerSeconds').addEventListener('keydown', function (e) { if (e.key === 'Enter') document.getElementById('addTimerBtn').click(); });
@@ -50,7 +49,6 @@ function addTimer(name, totalSeconds) {
     render();
 }
 
-// === Render ===
 function render() {
     summaryEl.classList.add('hidden');
 

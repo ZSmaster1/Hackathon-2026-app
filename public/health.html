@@ -48,7 +48,7 @@
     <aside class="flex w-60 shrink-0 flex-col border-r border-border bg-card h-screen sticky top-0 overflow-y-auto">
         <!-- Logo -->
         <div class="flex items-center gap-2.5 px-6 pt-6 pb-4">
-            <img src="/logo-large.png" alt="">
+            <a href="/dashboard"><img src="/logo-large.png" alt=""></a>
         </div>
 
         <!-- Overview Nav -->
@@ -67,8 +67,8 @@
                     School
                 </a>
                 <!-- Inbox -->
-                <a href="#"
-                    class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                <a href="/health"
+                    class="flex items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -88,9 +88,8 @@
 
                     Socials
                 </a>
-                <!-- Task -->
                 <a href="/time-management"
-                    class="flex items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground">
+                    class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -100,7 +99,7 @@
                     Time Management
                 </a>
 
-                <a href="#"
+				<a href="/guidance"
                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -133,6 +132,293 @@
         </div>
     </aside>
 
+    <main class="flex-1 overflow-y-auto px-8 py-8">
+        <div class="mx-auto max-w-5xl">
+
+            <!-- Page Header -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-foreground">Calorie Calculator</h1>
+                <p class="mt-1 text-sm text-muted-foreground">Calculate your daily calorie needs and macronutrient
+                    breakdown.</p>
+            </div>
+
+            <div class="flex gap-6">
+
+                <!-- LEFT: Body Parameters Form -->
+                <div class="flex-1 rounded-2xl border border-border bg-card p-6 fade-up">
+
+                    <!-- Gender Toggle -->
+                    <div class="mb-6">
+                        <label
+                            class="mb-2 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Gender</label>
+                        <div class="flex rounded-xl border border-border overflow-hidden">
+                            <button id="genderMale" onclick="setGender('male')"
+                                class="flex-1 py-3 text-sm font-bold transition-colors bg-primary text-primary-foreground">Male</button>
+                            <button id="genderFemale" onclick="setGender('female')"
+                                class="flex-1 py-3 text-sm font-bold transition-colors bg-card text-muted-foreground hover:bg-accent">Female</button>
+                        </div>
+                    </div>
+
+                    <!-- Age / Weight / Height -->
+                    <div class="mb-6 flex gap-3">
+                        <div class="flex-1">
+                            <label for="inputAge"
+                                class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Age</label>
+                            <input id="inputAge" type="number" min="10" max="100" value="24"
+                                class="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-bold text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                        </div>
+                        <div class="flex-1">
+                            <label for="inputWeight"
+                                class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Weight
+                                (kg)</label>
+                            <input id="inputWeight" type="number" min="30" max="300" value="72"
+                                class="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-bold text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                        </div>
+                        <div class="flex-1">
+                            <label for="inputHeight"
+                                class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Height
+                                (cm)</label>
+                            <input id="inputHeight" type="number" min="100" max="250" value="182"
+                                class="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-bold text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                        </div>
+                    </div>
+
+                    <!-- Activity Level -->
+                    <div class="mb-6">
+                        <label
+                            class="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Activity
+                            Level</label>
+                        <p id="activityDesc" class="mb-3 text-xs text-muted-foreground">Moderate: Burns an additional
+                            400-650 calories for females or 500-800 calories for males.</p>
+                        <input id="activitySlider" type="range" min="0" max="4" value="2" oninput="updateActivity()" />
+                        <div
+                            class="flex justify-between mt-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                            <span>Sedentary</span>
+                            <span>Light</span>
+                            <span>Moderate</span>
+                            <span>Active</span>
+                            <span>Very Active</span>
+                        </div>
+                    </div>
+
+                    <!-- Goals -->
+                    <div class="mb-8">
+                        <label
+                            class="mb-2 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Goal</label>
+                        <div class="flex gap-2">
+                            <button onclick="setGoal('lose')" data-goal="lose"
+                                class="goal-btn flex-1 rounded-xl border border-border py-3 text-xs font-bold uppercase tracking-wide transition-colors bg-card text-muted-foreground hover:bg-accent">Lose</button>
+                            <button onclick="setGoal('lose10')" data-goal="lose10"
+                                class="goal-btn flex-1 rounded-xl border border-border py-3 text-xs font-bold uppercase tracking-wide transition-colors bg-card text-muted-foreground hover:bg-accent">Lose
+                                10%</button>
+                            <button onclick="setGoal('maintain')" data-goal="maintain"
+                                class="goal-btn flex-1 rounded-xl border border-primary py-3 text-xs font-bold uppercase tracking-wide transition-colors bg-primary text-primary-foreground">Maintain</button>
+                            <button onclick="setGoal('gain')" data-goal="gain"
+                                class="goal-btn flex-1 rounded-xl border border-border py-3 text-xs font-bold uppercase tracking-wide transition-colors bg-card text-muted-foreground hover:bg-accent">Gain</button>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex items-center justify-between">
+                        <button onclick="clearForm()"
+                            class="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wide">Clear</button>
+                        <button onclick="calculate()"
+                            class="rounded-xl bg-foreground px-10 py-3.5 text-sm font-bold text-white hover:opacity-90 transition-opacity uppercase tracking-wide">Calculate</button>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Results Panel -->
+                <div id="resultsPanel" class="w-[380px] shrink-0 rounded-2xl border border-border bg-card p-6 fade-up"
+                    style="animation-delay: 0.1s;">
+
+                    <!-- Empty state -->
+                    <div id="resultEmpty" class="flex flex-col items-center justify-center py-16">
+
+                    </div>
+
+                    <!-- Filled result (hidden initially) -->
+                    <div id="resultFilled" class="hidden">
+
+                        <h2 class="text-lg font-bold text-foreground mb-5">Your Result</h2>
+
+                        <!-- Calories + Donut -->
+                        <div class="flex items-center gap-5 mb-6">
+                            <!-- Donut chart -->
+                            <div class="relative shrink-0">
+                                <svg id="donutChart" width="120" height="120" viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="48" fill="none" stroke="#e3dff0" stroke-width="12" />
+                                    <!-- Carb segment -->
+                                    <circle id="donutCarb" class="donut-segment" cx="60" cy="60" r="48" fill="none"
+                                        stroke="#7c5cfc" stroke-width="12" stroke-linecap="round"
+                                        stroke-dasharray="0 301.59" stroke-dashoffset="0"
+                                        style="transform:rotate(-90deg);transform-origin:50% 50%;" />
+                                    <!-- Protein segment -->
+                                    <circle id="donutProtein" class="donut-segment" cx="60" cy="60" r="48" fill="none"
+                                        stroke="#a78bfa" stroke-width="12" stroke-linecap="round"
+                                        stroke-dasharray="0 301.59" stroke-dashoffset="0"
+                                        style="transform:rotate(-90deg);transform-origin:50% 50%;" />
+                                    <!-- Fat segment -->
+                                    <circle id="donutFat" class="donut-segment" cx="60" cy="60" r="48" fill="none"
+                                        stroke="#ddd6fe" stroke-width="12" stroke-linecap="round"
+                                        stroke-dasharray="0 301.59" stroke-dashoffset="0"
+                                        style="transform:rotate(-90deg);transform-origin:50% 50%;" />
+                                </svg>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <span id="kcalNumber"
+                                        class="text-xl font-extrabold text-foreground leading-none">--</span>
+                                    <span class="text-[10px] font-semibold text-muted-foreground uppercase">kcal</span>
+                                </div>
+                            </div>
+                            <!-- Macro summary -->
+                            <div class="flex flex-col gap-3 flex-1">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="h-3 w-3 rounded-full bg-primary"></span>
+                                        <span class="text-xs font-medium text-muted-foreground">Carbs</span>
+                                    </div>
+                                    <span id="carbsSummary" class="text-xs font-bold text-foreground">--</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="h-3 w-3 rounded-full" style="background:#a78bfa;"></span>
+                                        <span class="text-xs font-medium text-muted-foreground">Protein</span>
+                                    </div>
+                                    <span id="proteinSummary" class="text-xs font-bold text-foreground">--</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="h-3 w-3 rounded-full" style="background:#ddd6fe;"></span>
+                                        <span class="text-xs font-medium text-muted-foreground">Fat</span>
+                                    </div>
+                                    <span id="fatSummary" class="text-xs font-bold text-foreground">--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Meal split -->
+                        <div class="mb-6">
+                            <label
+                                class="mb-2 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Meal
+                                Split</label>
+                            <div class="flex rounded-xl border border-border overflow-hidden">
+                                <button onclick="setMeals(1)" data-meals="1"
+                                    class="meal-btn flex-1 py-2.5 text-xs font-bold transition-colors bg-primary text-primary-foreground">Per
+                                    Day</button>
+                                <button onclick="setMeals(3)" data-meals="3"
+                                    class="meal-btn flex-1 py-2.5 text-xs font-bold transition-colors bg-card text-muted-foreground hover:bg-accent">3
+                                    Meals</button>
+                                <button onclick="setMeals(4)" data-meals="4"
+                                    class="meal-btn flex-1 py-2.5 text-xs font-bold transition-colors bg-card text-muted-foreground hover:bg-accent">4
+                                    Meals</button>
+                                <button onclick="setMeals(5)" data-meals="5"
+                                    class="meal-btn flex-1 py-2.5 text-xs font-bold transition-colors bg-card text-muted-foreground hover:bg-accent">5
+                                    Meals</button>
+                            </div>
+                            <div id="mealBreakdown" class="mt-4 rounded-xl bg-background p-4">
+                                <p class="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">Per
+                                    Meal</p>
+                                <div class="flex justify-between">
+                                    <div class="text-center">
+                                        <p id="mealKcal" class="text-lg font-extrabold text-primary">--</p>
+                                        <p class="text-[10px] font-semibold text-muted-foreground uppercase">kcal</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <p id="mealCarbs" class="text-lg font-extrabold text-foreground">--</p>
+                                        <p class="text-[10px] font-semibold text-muted-foreground uppercase">carbs</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <p id="mealProtein" class="text-lg font-extrabold text-foreground">--</p>
+                                        <p class="text-[10px] font-semibold text-muted-foreground uppercase">protein</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <p id="mealFat" class="text-lg font-extrabold text-foreground">--</p>
+                                        <p class="text-[10px] font-semibold text-muted-foreground uppercase">fat</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Adjust Protein -->
+                        <div class="mb-2">
+                            <label
+                                class="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Adjust
+                                Protein</label>
+                            <p class="text-[11px] text-muted-foreground mb-3">Start with normal. If you do a lot of
+                                lifting, try high.</p>
+                            <input id="proteinSlider" type="range" min="0" max="2" value="1"
+                                oninput="adjustProtein()" />
+                            <div
+                                class="flex justify-between mt-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                                <span>Low</span>
+                                <span>Normal</span>
+                                <span>High</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <section>
+                <div class="mb-4 flex items-center justify-between">
+                    <h3 class="text-lg font-bold text-foreground">Body Health</h3>
+                </div>
+                <div class="overflow-hidden rounded-xl border border-border bg-card">
+
+                    <div class="grid gap-4 border-b border-border px-5 py-3"
+                        style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Task</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Status</p>
+
+                    </div>
+
+                    <div class="grid items-center gap-4 px-5 py-3" style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+
+                        <p class="text-sm text-foreground">8 hours sleep</p>
+                        <p class="text-sm text-foreground">Complete</p>
+
+
+                    </div>
+
+                    <div class="grid items-center gap-4 px-5 py-3" style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+
+                        <p class="text-sm text-foreground">12 sets of bench press</p>
+                        <p class="text-sm text-foreground">Incomplete</p>
+
+
+
+                    </div>
+
+                    <div class="grid items-center gap-4 px-5 py-3" style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+
+                        <p class="text-sm text-foreground">150g of protein</p>
+                        <p class="text-sm text-foreground">Incomplete</p>
+
+
+                    </div>
+
+                    <div class="grid items-center gap-4 px-5 py-3" style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+
+                        <p class="text-sm text-foreground">Drink 2L of water</p>
+                        <p class="text-sm text-foreground">Complete</p>
+
+
+                    </div>
+
+                    <div class="grid items-center gap-4 px-5 py-3" style="grid-template-columns:1.5fr 1fr 1.5fr auto;">
+
+                        <p class="text-sm text-foreground">50 minute run</p>
+                        <p class="text-sm text-foreground">Complete</p>
+
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+
+    </main>
 
     <script src="/health.js"></script>
 

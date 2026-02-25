@@ -58,7 +58,6 @@ fetch('/user', { method: 'GET' }).then((res) => {
             ctx.lineCap = 'round';
             ctx.stroke();
 
-            // Simple avatar silhouette
             ctx.fillStyle = '#d4ccf0';
             ctx.beginPath();
             ctx.arc(center, center - 8, 14, 0, Math.PI * 2);
